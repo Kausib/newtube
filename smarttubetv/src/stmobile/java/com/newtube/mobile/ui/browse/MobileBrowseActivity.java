@@ -79,6 +79,9 @@ import com.newtube.mobile.ui.playback.SystemPipBridge;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.startapp.sdk.ads.banner.Banner;
+import com.startapp.sdk.adsbase.StartAppAd;
+
 
 /**
  * Touch Home shell - Wave 1 vertical slice.
