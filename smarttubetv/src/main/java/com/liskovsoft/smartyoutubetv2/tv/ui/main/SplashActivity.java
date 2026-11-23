@@ -5,6 +5,8 @@ import android.os.Bundle;
 import com.liskovsoft.smartyoutubetv2.common.app.presenters.SplashPresenter;
 import com.liskovsoft.smartyoutubetv2.common.app.views.SplashView;
 import com.liskovsoft.smartyoutubetv2.common.misc.MotherActivity;
+import com.startapp.sdk.adsbase.StartAppAd;
+import com.startapp.sdk.adsbase.StartAppSDK;
 
 public class SplashActivity extends MotherActivity implements SplashView {
     private static final String TAG = SplashActivity.class.getSimpleName();
@@ -14,6 +16,11 @@ public class SplashActivity extends MotherActivity implements SplashView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Start.io SDK Initialization (returnAdsEnabled = true for Return Ads)
+        StartAppSDK.init(this, "210619990", true);
+        // Show Splash Ad on App Launch
+        StartAppAd.showSplash(this, savedInstanceState);
 
         com.liskovsoft.smartyoutubetv2.common.misc.NetPath.log(
                 "splash onCreate data=" + (getIntent() != null ? getIntent().getDataString() : null));
