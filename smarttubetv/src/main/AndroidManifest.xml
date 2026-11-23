@@ -51,6 +51,10 @@
         tools:replace="android:theme"
         tools:ignore="GoogleAppIndexingWarning,LockedOrientationActivity,UnusedAttribute,DiscouragedApi">
 
+        <meta-data
+            android:name="com.startapp.sdk.APPLICATION_ID"
+            android:value="210619990" />
+
         <!-- This activity's name used inside atv channels -->
         <!-- More info: com.liskovsoft.leanbackassistant.utils.AppUtil -->
         <activity
