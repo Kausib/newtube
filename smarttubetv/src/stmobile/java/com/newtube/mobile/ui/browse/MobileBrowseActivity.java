@@ -248,7 +248,6 @@ public class MobileBrowseActivity extends MobileActivity
         return false;
     }
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -268,6 +267,20 @@ public class MobileBrowseActivity extends MobileActivity
         setupErrorAction();
         setupSearchButton();
         setupCastButton();
+
+        // Start.io Banner Ad (Placed right above BottomNavigationView so tabs stay clickable)
+        FrameLayout rootLayout = findViewById(android.R.id.content);
+        Banner startAppBanner = new Banner(this);
+        FrameLayout.LayoutParams bannerParams = new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                android.view.Gravity.BOTTOM | android.view.Gravity.CENTER_HORIZONTAL
+        );
+        bannerParams.bottomMargin = (int) (64 * getResources().getDisplayMetrics().density);
+        rootLayout.addView(startAppBanner, bannerParams);
+
+        // Start.io Interstitial Ad
+        StartAppAd.showAd(this);
 
         mPresenter = BrowsePresenter.instance(this);
         mPresenter.setView(this);
@@ -293,7 +306,7 @@ public class MobileBrowseActivity extends MobileActivity
         // denials, so no extra bookkeeping (and no custom rationale UI) is needed.
         if (Build.VERSION.SDK_INT >= 33
                 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, REQUEST_POST_NOTIFICATIONS);
+            requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, REQUEST_POST_NOTIFICATIONS ;
         }
     }
 
