@@ -242,12 +242,7 @@ public class MobileBrowseActivity extends MobileActivity
     private boolean mFeedSwapPinTop;
     private final Runnable mRestoreItemAnimator = this::restoreItemAnimator;
 
-    @Override
-    protected boolean shouldInsetContentForNavigationBar() {
-        // BottomNavigationView paints through the gesture area and applies that inset internally.
-        return false;
-    }
-
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -306,9 +301,10 @@ public class MobileBrowseActivity extends MobileActivity
         // denials, so no extra bookkeeping (and no custom rationale UI) is needed.
         if (Build.VERSION.SDK_INT >= 33
                 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, REQUEST_POST_NOTIFICATIONS ;
+            requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, REQUEST_POST_NOTIFICATIONS);
         }
     }
+
 
     private void bindViews() {
         mContentGrid = findViewById(R.id.mobile_content_grid);
